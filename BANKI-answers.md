@@ -262,27 +262,40 @@ Most of the technical questions should have a three sentence response in the EUE
   > A absolute positioned element on a page. 
   - **Source:** [MDN - Floats](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context) | [FE Interview Handbook](https://www.frontendinterviewhandbook.com/css-questions#describe-block-formatting-context-bfc-and-how-it-works)
 
-- [ ] What are the various clearing techniques and which is appropriate for what context?
+- [x] What are the various clearing techniques and which is appropriate for what context?
   - **Explanation:**
   >
-  > - clear property which sets whether an element must be moved below floating elements.
-  > - 
+  > - Clear method: clear property which sets whether an element must be moved below floating elements.
+  > - Clearfix method: refers to the .clearfix class
+  > - Overflow method: Using `overflow: hidden` or `overflow: auto` on a perent to establish a new block formatting context and epand to contain its floated children.
   >
   - **Use:**
-  - **Example:**
-  - **Source:**
+  >
+  > - Clear: used in float layouts. Use this if you want to have adjacent floated elements to stack instead
+  > - Clearfix: used in float layouts on a parent element that contains floated children. Will expand the parent to contain the children, otherwise will collapse, just as if it's floated childen had been positioned absolutely. 
+  >
+  >   .clearfix utility class is probably the best method to use in general as it doesn't take long to construct and doesn't suffer from clipping issues like the overflow methods.
+  > - Overflow: overflow hidden can cause children to be hidden if taller than parent
+  >
+  - **Source:** [Educative](https://www.educative.io/edpresso/what-is-a-clearfix-in-css) | [FE Interview Handbook](https://www.frontendinterviewhandbook.com/css-questions)
 
-- [ ] Explain CSS sprites, and how you would implement them on a page or site.
+- [x] Explain CSS sprites, and how you would implement them on a page or site.
   - **Explanation:**
+  > CSS sprites are multiple images combined together into a single larger image. Commonly use for icons.
   - **Use:**
-  - **Example:**
-  - **Source:**
+  > You can use a sprite generator to create it. Once made, each image would  have a corresponding CSS class with `background-image`, `background-position`, and `background-size` properties definded.
+  >
+  > This is usefule because it reduces the number of HTTP requests a browser may need to do which would increase load speed.
+  - **Example:** 
+  > An example would be combining press logo's for Wired, NY Times and The Washington Post into a single image file. Then on the site, with CSS, placing the file three times and moving/cropping it to display the applicable logo.
+  - **Source:** [css-tricks](https://css-tricks.com/css-sprites/)
 
-- [ ] How would you approach fixing browser-specific styling issues?
+- [x] How would you approach fixing browser-specific styling issues?
   - **Explanation:**
+  > There are a couple of ways to solve the issue such as browser specific stylesheets, using a library like bootstrap, or using css Normalize/Reset.  I'd rather use a combination as going full nuke with a reset isn't necessary and makes it a little harder to debug and using libraries can b.
   - **Use:**
-  - **Example:**
-  - **Source:**
+  > I prefer to use the normalize/reset style sheet method. Using libraries can be "heavy" depending on the project and takes time to learn all the different classes, and trying to pinpoint a specific issue to a browser can be time consuming.
+  - **Source:** [FE Interview Handbook](https://www.frontendinterviewhandbook.com/css-questions)
 - [ ] How do you serve your pages for feature-constrained browsers? What techniques/processes do you use?
   - **Explanation:**
   - **Use:**
