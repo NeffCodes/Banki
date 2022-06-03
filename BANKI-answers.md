@@ -120,26 +120,50 @@ Most of the technical questions should have a three sentence response in the EUE
 
 ### HTML
 
-- [ ] What does a doctype do?
+- [x] What does a doctype do?
   - **Explanation:**
+  > DOCTYPE is an abbreviation for Document Type. A DOCTYPE is always associated to a DTD - for Document Type Definition.
   - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] How do you serve a page with content in multiple languages?
+  > For webpages, the DOCTYPE declaration is required. It is used to tell user agents what version of the HTML specifications your document respects.
+  - **Example:** 
+  > The DOCTYPE declaration for the HTML5 standards is `<!DOCTYPE html>`.
+  - **Source:** [FE Interview Handbook](https://www.frontendinterviewhandbook.com/html-questions/#what-does-a-doctype-do)
+
+- [x] How do you serve a page with content in multiple languages?
   - **Explanation:**
+  > By setting the lang attributes on the various elements within the page.
   - **Use:**
+  > The lang attribute can be used on various elements (typically html, p, li...)
   - **Example:**
-  - **Source:**
+  > You can set the whole site as being english by setting the html element <html lang="en"> Or you could set a paragraph as spanish with <p lang="es">
+  - **Source:** [MDN]( https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang)
+
 - [ ] What kinds of things must you be wary of when designing or developing for multilingual sites?
   - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] What are `data-` attributes good for?
+  > There are quite a few different nuances to pay attention to including:
+  >
+  > - Including the lang attribute
+  > - Allowing users to change the language
+  > - Minimize text in raster based images
+  > - Text overflow when translated
+  > - How colors are perceived
+  > - Date and currency formats
+  > - Language reading direction
+  > - Don't concatenate translated strings
+  >
+  - **Source:** [FE Interview Handbook](https://www.frontendinterviewhandbook.com/html-questions/#what-kind-of-things-must-you-be-wary-of-when-designing-or-developing-for-multilingual-sites)
+
+- [x] What are `data-` attributes good for?
   - **Explanation:**
+  > They allow the storage data to the page or elements within the page
   - **Use:**
+  > Generally not encouraged. Users are able to modify the data attribute easily with inspect tool.
+  >
+  > However, one perfectly valid use of data attributes, is to add a hook for end to end testing frameworks without having to create a meaningless classes or ID attributes.
   - **Example:**
-  - **Source:**
+  > `data-selector='the-thing'`
+  - **Source:** [FE Interview Handbook](https://www.frontendinterviewhandbook.com/html-questions/#what-are-data--attributes-good-for)
+  
 - [ ] Consider HTML5 as an open web platform. What are the building blocks of HTML5?
   - **Explanation:**
   - **Use:**
@@ -296,16 +320,35 @@ Most of the technical questions should have a three sentence response in the EUE
   - **Use:**
   > I prefer to use the normalize/reset style sheet method. Using libraries can be "heavy" depending on the project and takes time to learn all the different classes, and trying to pinpoint a specific issue to a browser can be time consuming.
   - **Source:** [FE Interview Handbook](https://www.frontendinterviewhandbook.com/css-questions)
-- [ ] How do you serve your pages for feature-constrained browsers? What techniques/processes do you use?
+- [x] How do you serve your pages for feature-constrained browsers? What techniques/processes do you use?
   - **Explanation:**
+  >
+  > - Graceful degradation — The practice of building an application for modern browsers while ensuring it remains functional in older browsers.
+  > - Progressive enhancement — The practice of building an application for a base level of user experience, but adding functional enhancements when a browser supports it.
+  >
   - **Use:**
+  >
+  > - Use caniuse.com to check for feature support.
+  > - Autoprefixer for automatic vendor prefix insertion.
+  > - Feature detection using Modernizr.
+  > - Use CSS Feature queries @support
+  >
   - **Example:**
-  - **Source:**
-- [ ] What are the different ways to visually hide content (and make it available only for screen readers)?
+  > Instead of filling the site with `<div>` using more semantically appropriate tags like `<section> <aside> <article> <header> <footer>`
+  - **Source:** [Developers life](https://blog.bullgare.com/2018/02/front-end-interview-questions-with-answers/#How_do_you_serve_your_pages_for_feature-constrained_browsers_What_techniquesprocesses_do_you_use)
+
+- [x] What are the different ways to visually hide content (and make it available only for screen readers)?
   - **Explanation:**
+  >
+  > - Make the element have a size of zero width: 0; height: 0
+  > - Absolute position off screen position: absolute; left: -99999px
+  > - Text indent off screen if within block element text-indent: -9999px
+  > - aria-label which will read the string given to the attribute.
+  >
   - **Use:**
-  - **Example:**
-  - **Source:**
+  > Generally, using the Absolute positioning is the best method since it has the least caveats, works for most elements and it's an easy technique.
+  - **Source:** [FE Interview Handbook](https://www.frontendinterviewhandbook.com/css-questions)
+
 - [ ] Have you ever used a grid system, and if so, what do you prefer?
   - **Explanation:**
   - **Use:**
