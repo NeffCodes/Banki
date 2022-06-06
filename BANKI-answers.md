@@ -125,7 +125,7 @@ Most of the technical questions should have a three sentence response in the EUE
   > DOCTYPE is an abbreviation for Document Type. A DOCTYPE is always associated to a DTD - for Document Type Definition.
   - **Use:**
   > For webpages, the DOCTYPE declaration is required. It is used to tell user agents what version of the HTML specifications your document respects.
-  - **Example:** 
+  - **Example:**
   > The DOCTYPE declaration for the HTML5 standards is `<!DOCTYPE html>`.
   - **Source:** [FE Interview Handbook](https://www.frontendinterviewhandbook.com/html-questions/#what-does-a-doctype-do)
 
@@ -135,7 +135,7 @@ Most of the technical questions should have a three sentence response in the EUE
   - **Use:**
   > The lang attribute can be used on various elements (typically html, p, li...)
   - **Example:**
-  > You can set the whole site as being english by setting the html element <html lang="en"> Or you could set a paragraph as spanish with <p lang="es">
+  > You can set the whole site as being english by setting the html element `<html lang="en">` Or you could set a paragraph as spanish with `<p lang="es">`
   - **Source:** [MDN]( https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang)
 
 - [ ] What kinds of things must you be wary of when designing or developing for multilingual sites?
@@ -163,32 +163,75 @@ Most of the technical questions should have a three sentence response in the EUE
   - **Example:**
   > `data-selector='the-thing'`
   - **Source:** [FE Interview Handbook](https://www.frontendinterviewhandbook.com/html-questions/#what-are-data--attributes-good-for)
+
+- [x] Consider HTML5 as an open web platform. What are the building blocks of HTML5?
+  - **Explanation:**
+  >
+  > - Semantics - Allowing you to describe more precisely what your content is.
+  > - Connectivity - Allowing you to communicate with the server in new and innovative ways.
+  > - Offline and storage - Allowing webpages to store data on the client-side locally and operate offline more efficiently.
+  > - Multimedia - Making video and audio first-class citizens in the Open Web.
+  > - 2D/3D graphics and effects - Allowing a much more diverse range of presentation options.
+  > - Performance and integration - Providing greater speed optimization and better usage of computer hardware.
+  > - Device access - Allowing for the usage of various input and output devices.
+  > - Styling - Letting authors write more sophisticated themes.
+  >
+  - **Source:** [FE Interview Handbook](https://www.frontendinterviewhandbook.com/html-questions#consider-html5-as-an-open-web-platform-what-are-the-building-blocks-of-html5)
   
-- [ ] Consider HTML5 as an open web platform. What are the building blocks of HTML5?
+- [x] Describe the difference between a cookie, sessionStorage and localStorage.
   - **Explanation:**
+  > Cookies can be initiated by the server, have a manually set expiration date are small file size and are sent to the server with HTTP request. Local and session are both initiated by the client, are a relatively large file and aren't sent to the server. The main difference between local and session is that local storage will persist forever until cleared manually and can be accessed by any window in the browser. Session storage can only be accessed by the same tab.
   - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] Describe the difference between a cookie, sessionStorage and localStorage.
+  > All the above-mentioned technologies are key-value storage mechanisms on the client side and can only store values as strings.
+  - **Source:** [FE Interview Handbook](https://www.frontendinterviewhandbook.com/html-questions#describe-the-difference-between-a-cookie-sessionstorage-and-localstorage)
+
+- [x] Describe the difference between `<script>, <script async> and <script defer>`.
   - **Explanation:**
+  >
+  > - `<script>` - HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.
+  > - `<script async>` - The script will be fetched in parallel to HTML parsing and executed as soon as it is available (potentially before HTML parsing completes). Use async when the script is independent of any other scripts on the page, for example, analytics.
+  > - `<script defer>` - The script will be fetched in parallel to HTML parsing and executed when the page has finished parsing. If there are multiple of them, each deferred script is executed in the order they were encountered in the document. If a script relies on a fully-parsed DOM, the defer attribute will be useful in ensuring that the HTML is fully parsed before executing. A deferred script must not contain document.write.
+  >
   - **Use:**
+  >
+  > - Use `async` when the script is independent of any other scripts on the page
+  >
+  > - `defer` is useful when you need to make sure the HTML is fully parsed before executing.
+
   - **Example:**
-  - **Source:**
-- [ ] Describe the difference between `<script>, <script async> and <script defer>`.
+  >
+  > - `async` could be used for analytics scripts.
+  >
+  > - A deferred script must not contain document.write
+
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/html-questions#describe-the-difference-between-script-script-async-and-script-defer)
+
+- [x] Why is it generally a good idea to position CSS `<link>`s within `<head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
   - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] Why is it generally a good idea to position CSS `<link>`s within `<head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
+  > Putting `<link>`s in the `<head>` allows for quick "first meaningful paint". When a page first loads, HTML and CSS are being parsed simultaneously. If you put it at the bottom of the documnet cnan lead to bugs/issues, including users just seeing a blank page or flashes of unstyled content.
+  >
+  >`<script>` tags block HTML parsing while they are being downloaded and executed which can slow down your page. Placing the scripts at the bottom will allow the HTML to be parsed and displayed to the user first
+
+  - **Exception:**
+  > These days its not considered to be good practice, but if your script contains `document.write()` you would put it in the `<head>`.
+  >
+  >Also if you need to put `<script>`s in the `<head>`, use the `defer` attribute, which will achieve the same effect of running the script only after the HTML is parsed but the browser can download the script earlier.
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/html-questions#why-is-it-generally-a-good-idea-to-position-css-links-between-headhead-and-js-scripts-just-before-body-do-you-know-any-exceptions)
+
+- [x] What is progressive rendering?
   - **Explanation:**
+  > Progressive rendering is the name given to techniques used to improve the performance of a webpage (in particular, improve perceived load time) to render content for display as quickly as possible.
   - **Use:**
+  > To improve the perceived load time of a page/content.
   - **Example:**
-  - **Source:**
-- [ ] What is progressive rendering?
-  - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
+  >| Type | Description |
+  >| ---| --- |
+  >| Lazy Loading Images | Images on the page are not loaded all at once. JavaScript will be used to load an image when the user scrolls into the part of the page that displays the image.|
+  > | Prioritizing visible content (aka above the fold) | Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the DOMContentLoaded/load event to load in other resources and content.|
+  > | Async HTML Fragments | Flushing parts of the HTML to the browser as the page is constructed on the back end |
+  >
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/html-questions#what-is-progressive-rendering)
+
 - [ ] Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
   - **Explanation:**
   - **Use:**
@@ -283,7 +326,7 @@ Most of the technical questions should have a three sentence response in the EUE
   >
   > In a BFC, each box's left outer edge touches the left edge of the containing block (for right-to-left formatting, right edges touch).
   - **Example:**
-  > A absolute positioned element on a page. 
+  > A absolute positioned element on a page.
   - **Source:** [MDN - Floats](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context) | [FE Interview Handbook](https://www.frontendinterviewhandbook.com/css-questions#describe-block-formatting-context-bfc-and-how-it-works)
 
 - [x] What are the various clearing techniques and which is appropriate for what context?
@@ -296,7 +339,7 @@ Most of the technical questions should have a three sentence response in the EUE
   - **Use:**
   >
   > - Clear: used in float layouts. Use this if you want to have adjacent floated elements to stack instead
-  > - Clearfix: used in float layouts on a parent element that contains floated children. Will expand the parent to contain the children, otherwise will collapse, just as if it's floated childen had been positioned absolutely. 
+  > - Clearfix: used in float layouts on a parent element that contains floated children. Will expand the parent to contain the children, otherwise will collapse, just as if it's floated childen had been positioned absolutely.
   >
   >   .clearfix utility class is probably the best method to use in general as it doesn't take long to construct and doesn't suffer from clipping issues like the overflow methods.
   > - Overflow: overflow hidden can cause children to be hidden if taller than parent
@@ -310,7 +353,7 @@ Most of the technical questions should have a three sentence response in the EUE
   > You can use a sprite generator to create it. Once made, each image would  have a corresponding CSS class with `background-image`, `background-position`, and `background-size` properties definded.
   >
   > This is usefule because it reduces the number of HTTP requests a browser may need to do which would increase load speed.
-  - **Example:** 
+  - **Example:**
   > An example would be combining press logo's for Wired, NY Times and The Washington Post into a single image file. Then on the site, with CSS, placing the file three times and moving/cropping it to display the applicable logo.
   - **Source:** [css-tricks](https://css-tricks.com/css-sprites/)
 
