@@ -128,6 +128,8 @@ Most of the behavioral questions should be answered in the CAR format. At least 
   - **Action:**
   - **Result:**
 
+---
+
 ## Technical Questions
 
 Most of the technical questions should have a three sentence response in the EUE format:
@@ -263,6 +265,8 @@ Most of the technical questions should have a three sentence response in the EUE
   - Yes, I have used Markdown, and have experience with Handlebars with Python and Mustache with React. They seem to provide similar functionality of escaping content and helpful filters for manipulating the data to be displayed.
 
   - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/html-questions#have-you-used-different-html-templating-languages-before)
+
+---
 
 ### CSS
 
@@ -413,16 +417,19 @@ Most of the technical questions should have a three sentence response in the EUE
   > Generally, using the Absolute positioning is the best method since it has the least caveats, works for most elements and it's an easy technique.
   - **Source:** [FE Interview Handbook](https://www.frontendinterviewhandbook.com/css-questions)
 
-- [ ] Have you ever used a grid system, and if so, what do you prefer?
+- [x] Have you ever used a grid system, and if so, what do you prefer?
   - **Explanation:**
+  > Yes, in the past I've used Bootstrap (which is based on the 12 column system), but now I typically use the 12 column grid system using flex or grid. However, depending on the scale of the project, I may use a 6 column.
   - **Use:**
-  - **Example:**
-  - **Source:**
+  > Using the grid system is my ideal way to mockup any design with visual consistency. When if comes to coding the site I find it helps speed up the layout immensely as well.
+  - **Source:** [Flux Academy](https://www.flux-academy.com/blog/how-to-use-a-grid-in-web-design)
+
 - [ ] Have you used or implemented media queries or mobile specific layouts/CSS?
   - **Explanation:**
   - **Use:**
   - **Example:**
   - **Source:**
+  
 - [ ] Are you familiar with styling SVG?
   - **Explanation:**
   - **Use:**
@@ -518,6 +525,8 @@ Most of the technical questions should have a three sentence response in the EUE
   - **Use:**
   - **Example:**
   - **Source:**
+
+---
 
 ### Javascript
 
@@ -792,6 +801,8 @@ Most of the technical questions should have a three sentence response in the EUE
   - **Example:**
   - **Source:**
 
+---
+
 ### Javascript General
 
 - [ ] Can you name two programming paradigms important for JavaScript app developers?
@@ -824,6 +835,8 @@ Most of the technical questions should have a three sentence response in the EUE
   - **Use:**
   - **Example:**
   - **Source:**
+
+---
 
 ### Node
 
@@ -963,6 +976,8 @@ Most of the technical questions should have a three sentence response in the EUE
   - **Example:**
   - **Source:**
 
+---
+
 ### CS Theory
 
 - [ ] What is recursion and give an example using javascript?
@@ -1076,6 +1091,8 @@ Most of the technical questions should have a three sentence response in the EUE
   - **Example:**
   - **Source:**
 
+---
+
 ## Questions to ask your interviewer
 
 1. How does Bob’s Burgers measure the success of their engineers?
@@ -1086,6 +1103,8 @@ Most of the technical questions should have a three sentence response in the EUE
 6. Do you have any questions or concerns about my qualifications?
 
 Here is a helpful list of other reverse interview questions: [https://github.com/viraptor/reverse-interview](https://github.com/viraptor/reverse-interview)
+
+---
 
 ## Whiteboard
 
@@ -1107,6 +1126,8 @@ When talking through a whiteboard problem or a coding challenge with an intervie
   - Examples are a good idea because "you have the receipts" if the interviewer decides to change things.
 - **Pseudocode**
   - Write pseudocode of each of the steps
+
+---
 
 ## Resources
 
