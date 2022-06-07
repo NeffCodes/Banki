@@ -138,7 +138,7 @@ Most of the technical questions should have a three sentence response in the EUE
   > You can set the whole site as being english by setting the html element `<html lang="en">` Or you could set a paragraph as spanish with `<p lang="es">`
   - **Source:** [MDN]( https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang)
 
-- [ ] What kinds of things must you be wary of when designing or developing for multilingual sites?
+- [x] What kinds of things must you be wary of when designing or developing for multilingual sites?
   - **Explanation:**
   > There are quite a few different nuances to pay attention to including:
   >
@@ -232,16 +232,19 @@ Most of the technical questions should have a three sentence response in the EUE
   >
   - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/html-questions#what-is-progressive-rendering)
 
-- [ ] Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
+- [x] Why you would use a `srcset` attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
   - **Explanation:**
+  > When you want to serve different images to users depending on their device display width
   - **Use:**
+  > Serving higher quality images to devices with retina display enhances the user experience while serving lower resolution images to low-end devices increase performance and decrease data wastage
   - **Example:**
-  - **Source:**
-- [ ] Have you used different HTML templating languages before?
-  - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
+  > `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` tells the browser to display the small, medium or large .jpg graphic depending on the client's resolution.
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/html-questions#why-you-would-use-a-srcset-attribute-in-an-image-tag-explain-the-process-the-browser-uses-when-evaluating-the-content-of-this-attribute)
+
+- [x] Have you used different HTML templating languages before?
+  - Yes, I have used Markdown, and have experience with Handlebars with Python and Mustache with React. They seem to provide similar functionality of escaping content and helpful filters for manipulating the data to be displayed.
+
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/html-questions#have-you-used-different-html-templating-languages-before)
 
 ### CSS
 
