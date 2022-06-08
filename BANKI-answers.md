@@ -424,32 +424,79 @@ Most of the technical questions should have a three sentence response in the EUE
   > Using the grid system is my ideal way to mockup any design with visual consistency. When if comes to coding the site I find it helps speed up the layout immensely as well.
   - **Source:** [Flux Academy](https://www.flux-academy.com/blog/how-to-use-a-grid-in-web-design)
 
-- [ ] Have you used or implemented media queries or mobile specific layouts/CSS?
+- [x] Have you used or implemented media queries or mobile specific layouts/CSS?
   - **Explanation:**
+  > Yes, quite frequently
   - **Use:**
+  >  I use them on every website, typically by building mobile first. The breakpoints and media queries are then used to convert the layout from mobile to ipads to desktop.
   - **Example:**
-  - **Source:**
+  > An example would be changing a bunch of cards from being a single column stack on mobile to a three column layout on desktop.
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/css-questions#have-you-used-or-implemented-media-queries-or-mobile-specific-layoutscss)
   
-- [ ] Are you familiar with styling SVG?
+- [x] Are you familiar with styling SVG?
   - **Explanation:**
+  > Yes, there are several ways to color shapes (including specifying attributes on the object) using inline CSS, an embedded CSS section, or an external CSS file. Most SVG you'll find around the web use inline CSS, but there are advantages and disadvantages associated with each type.
   - **Use:**
+  > Basic coloring can be done by setting two attributes on the node: `fill` and `stroke`
   - **Example:**
-  - **Source:**
-- [ ] Can you give an example of an `@media` property other than screen?
+  > `<rect width="100" height="100" stroke="blue" fill="purple" />`
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/css-questions#are-you-familiar-with-styling-svg)
+
+- [x] Can you give an example of an `@media` property other than screen?
   - **Explanation:**
+  > There are four types of `@media` propertes: all, print, speech, and screen
   - **Use:**
+  >
+  > - `all` is for all media type devices
+  > - `print` is for printers
+  > - `speech` is for screenreaders that "reads" that page out loud
+  > - `screen` is for computer / table / phone screens
+  >
   - **Example:**
-  - **Source:**
-- [ ] What are some of the "gotchas" for writing efficient CSS?
+
+   ```css
+  @media print {
+    body { 
+      color: black; 
+    }
+  }
+  ```
+
+  - **Source:** [FE nterview handbook](https://www.frontendinterviewhandbook.com/css-questions#can-you-give-an-example-of-an-media-property-other-than-screen)
+
+- [x] What are some of the "gotchas" for writing efficient CSS?
   - **Explanation:**
-  - **Use:**
+  >
+  > - Browsers match selectors from rightmost (key selector) to left. The shorter the length of the chain the faster the browser can find a match. Avoid using tag and universal selectors for your key selector.
+  > - Avoid using styles that trigger reflow.
+  >
   - **Example:**
-  - **Source:**
-- [ ] What are the advantages/disadvantages of using CSS preprocessors?
+  >
+  >| Bad | Good |
+  >| ---| --- |
+  >| `html body p .class a`  | `.targetedClass` |
+  >
+  - **Source:** [CSS Triggers](https://csstriggers.com/) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/css-questions#what-are-some-of-the-gotchas-for-writing-efficient-css)
+
+- [x] What are the advantages/disadvantages of using CSS preprocessors?
   - **Explanation:**
-  - **Use:**
+  > **Advantages** would be:
+  >
+  > - The code is easier to maintain
+  > - More efficient to write with nested selectors
+  > - Mixins can be used for repeated styles
+  > - Ability to split into different files
+  >
+  > **Disadvantages** would be:
+  >
+  > - Additional tooling is required
+  > - You aren't able to use the most current features of standard CSS
+  >
+
   - **Example:**
-  - **Source:**
+  > Sass, Less, PostCSS
+  - **Source:** [MDN CSS Preprocessors](https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/css-questions#what-are-the-advantagesdisadvantages-of-using-css-preprocessors)
+
 - [ ] Describe what you like and dislike about the CSS preprocessors you have used.
   - **Explanation:**
   - **Use:**
