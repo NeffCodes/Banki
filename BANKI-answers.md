@@ -497,81 +497,195 @@ Most of the technical questions should have a three sentence response in the EUE
   > Sass, Less, PostCSS
   - **Source:** [MDN CSS Preprocessors](https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/css-questions#what-are-the-advantagesdisadvantages-of-using-css-preprocessors)
 
-- [ ] Describe what you like and dislike about the CSS preprocessors you have used.
+- [x] Describe what you like and dislike about the CSS preprocessors you have used.
   - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] How would you implement a web design comp that uses non-standard fonts?
+  > I find the nested selectors to be very handy, along with the other advantages of using a preprocessor. It's easier to maintain and update as the project grows. However, some downsides would be making it slightly more difficult to debug due to the compilation step. Also, the css file produced can become very large if you're not careful.
+
+  - **Source:** [Adam Silver](https://adamsilver.io/blog/the-disadvantages-of-css-preprocessors/)
+
+- [x] How would you implement a web design comp that uses non-standard fonts?
   - **Explanation:**
+  > Use the `@font-face` css rule and define the `font-family` with the font you want to use. Then provide the `src` of where the font is.
   - **Use:**
+  > As mentioned, you would use this to add a non-standard font to a site, either from a remote server or a locally-installed font.
   - **Example:**
-  - **Source:**
-- [ ] Explain how a browser determines what elements match a CSS selector.
+
+  ```css
+    @font-face {
+      font-family: "Open Sans";
+      src: 
+        url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
+        url("/fonts/OpenSans-Regular-webfont.woff") format("woff");
+    }
+  ```
+
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/css-questions#how-would-you-implement-a-web-design-comp-that-uses-non-standard-fonts) | [MDN @font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face)
+
+- [x] Explain how a browser determines what elements match a CSS selector.
   - **Explanation:**
+  > Browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector and traverse up its parent elements to determine matches.
   - **Use:**
+  > The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector.
   - **Example:**
-  - **Source:**
-- [ ] Describe pseudo-elements and discuss what they are used for.
+  > If the selector is `p span`, browser firstly find all the `<span>` elements and then traverse up its parents all the way to the root to find the `<p>` element. For a particular `<span>`, as soon as it finds a `<p>`, it knows that the `<span>` matches and can stop its matching.
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/css-questions#explain-how-a-browser-determines-what-elements-match-a-css-selector)
+
+- [x] Describe pseudo-elements and discuss what they are used for.
   - **Explanation:**
+  > CSS pseudo-elemnt is a keyword added to a selector that lets you style a specific part of the selected element(s).
   - **Use:**
+  > You can use only one pseudo-element in a selector. It must appear after the simple selectors in the statement.
+  >
+  >**NOTE** as a rule, double colons (`::`) should be used instead of a single colon (`:`). This distinguishes pseudo-classes from psuedo-elements.
   - **Example:**
-  - **Source:**
-- [ ] Explain your understanding of the box model and how you would tell the browser, through CSS, to render your layout in different box models.
+  > A couple of examples would be like `::first-line` in `p::first-line` to target the first line of a paragraph to stylize
+  - **Source:** [MDN Psuedo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/css-questions#describe-pseudo-elements-and-discuss-what-they-are-used-for)
+
+- [x] Explain your understanding of the box model and how you would tell the browser, through CSS, to render your layout in different box models.
   - **Explanation:**
+  > The CSS box model describes the rectangular boxes that are generated for elements in the document tree and laid out according to the visual formatting model.
+  >
+  > Each box has a content area (e.g. text, an image, etc.) and optional surrounding padding, border, and margin areas.
   - **Use:**
+  > The CSS Box Models is responsible for calculating
+  >
+  > - How much space a block-level element takes up
+  > - Whether or not borders and/or margins overlap/collapse
+  > - The box's dimensions
+  > - To a certain extent, the box's position relative to other content on the page
+  >
   - **Example:**
-  - **Source:**
-- [ ] What does `* { box-sizing: border-box; }` do? What are its advantages?
-  - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
+  > The standard box model calculates box size by taking a specified height and width, then adding the padding and border. However to change to the alternative box model you would set box-sizing: border-box which allows you to set the box size with height and width.
+  - **Source:** [MDN CSS Box Model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#what_is_the_css_box_model) | [Smashing Magazine](https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model)
+
+- [x] What does `* { box-sizing: border-box; }` do? What are its advantages?
+  - **Explanation / Use:**
+  > That is the alternative CSS Box model. Instead of calculating the width of a box then adding the border and padding to get the real size, it instead allows you set the "true" width and height of a box, including the padding and border, and sets if for all elements with the `*` selector.
+  - **Source:** [MDN CSS Box Model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#what_is_the_css_box_model)
+
 - [ ] What is the CSS `display` property and can you give a few examples of its use?
-  - **Explanation:**
-  - **Use:**
+  - **Explanation / Use:**
+  > The display CSS property sets whether an element is treated as a block or inline element and the layout used for its children, such as flow layout, grid or flex.
   - **Example:**
-  - **Source:**
-- [ ] What's the difference between `inline` and `inline-block`?
+
+  | `display` property | Description |
+  | ------------------ | ----------- |
+  | `none`             | does not display the element       |
+  | `block`            | the element takes up the whole line in the block direction (default horizontal)        |
+  | `inline`           | the element can be laid out beside each other       |
+  | `flex`             | the elementbehaves like a block element and lays out its content according to the flexbox model        |
+  - **Source:** [MDN CSS display](https://developer.mozilla.org/en-US/docs/Web/CSS/display)
+
+- [x] What's the difference between `inline` and `inline-block`?
   - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] What's the difference between a `relative`, `fixed`, `absolute` and `static` positioned element?
+  > `inline` does not respect the width/height and only allows you to set the padding/margins for the left and right
+  >
+  > `inline-block` does respect the width/height and allows you to set the padding/margins on all sides.
+  - **Source:** [Digital Ocean](https://www.digitalocean.com/community/tutorials/css-display-inline-vs-inline-block)
+
+- [x] What's the difference between a `relative`, `fixed`, `absolute` and `static` positioned element?
   - **Explanation:**
+  
+  | `position`   | uses top, bottom, right, left, and z-index | description |
+  | --------   | --- | ---|
+  | `static`   | no  | DEFAULT: the element is positioned according to the normal flow of the document |
+  | `relative` | yes | the element is positioned according to the normal flow of the document, and then offset relative to itself|
+  | `fixed`    | yes |  the element removed from page flow and placed in spot relative to viewport. It won't move when scrolled |
+  | `absolute` | yes | the element removed from page flow and positioned relative to it closest "positioned" ancestor. Original space on the page is not preserved |
+  | `sticky`   | yes  | the element is positioned according to the normal flow of the document, and then offset relative to its nearest scrolling ancestor and containing block  |
   - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
+  > Use the position to set how an element is positioned in a document
+  - **Source:** [MDN CSS Position](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
+
+- [x] What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
+  > I have used Bootstrap in the past, but I found that it makes my site look very "generic" now-in-days and takes a while to get the latest CSS features added. I have also fiddled with Material-UI/Emotion with some of my React projects, however since it is mostly a set of UI components, it doesn't offer such a great boost to the development speed as Bootstrap does
+
+- [x] Have you played around with the new CSS Flexbox or Grid specs?
   - **Explanation:**
+  > Yes, I have used both flexbox and grid and I use them often when creating a site.
   - **Use:**
+  > I find grid useful for setting the outer most layout of a site (because of the ability to use the `fr` measurements) or if I have a design that has elements that "overflow" their original axes. (two-dimensional)
+  >
+  > Flex is very useful for setting elements in line or aligning elements compared to their siblings. (one-dimensional)
   - **Example:**
-  - **Source:**
-- [ ] Have you played around with the new CSS Flexbox or Grid specs?
+  > say you have 5 `<div>`s. If your wrapper is set to flex and wrap, the elements that wrap can be set to grow/shrink to fill in the second row. However, if you set the wrapper to grid, the elements on each row would match the respective columns width.
+  - **Source:** [MDN Layout Methods](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout)
+
+- [x] Can you explain the difference between coding a web site to be responsive versus using a mobile-first strategy?
   - **Explanation:**
+  > Note that these two 2 approaches are not exclusive. A mobile-first site always is responsive, but a responsive site isn't always mobile-first.
+  >
+  > A responsive website is ***reactive*** — the design moving fluidly to fit devices. A mobile-first website is when the mobile website planned and designed in tandem with the desktop site, making ***proactive*** changes to the overall design to ensure the mobile experience is just as good as the desktop experience.
   - **Use:**
+  > In responsive, you adapt the elements according to screen size with media queries.
+  >
+  > With mobile-first, you define all the styles for mobile devices, and only add specific responsive rules to other devices with media queries later.
   - **Example:**
-  - **Source:**
-- [ ] Can you explain the difference between coding a web site to be responsive versus using a mobile-first strategy?
-  - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
+    - Responsive:
+
+    ```css
+      @media (min-width: 601px) {
+        .my-class {
+          font-size: 24px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .my-class {
+          font-size: 12px;
+        }
+      }
+    ```
+
+    - Mobile-first:
+
+    ```css
+      .my-class {
+        font-size: 12px;
+      }
+
+      @media (min-width: 600px) {
+        .my-class {
+          font-size: 24px;
+        }
+      }
+    ```
+
+  - **Source:** [Final Site](https://www.finalsite.com/blog/p/~board/b/post/rresponsive-vs-mobile-first-difference) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/css-questions#can-you-explain-the-difference-between-coding-a-website-to-be-responsive-versus-using-a-mobile-first-strategy)
+
 - [ ] How is responsive design different from adaptive design?
   - **Explanation:**
+  > Both responsive and adaptive design attempt to optimize the user experience across different devices.
   - **Use:**
-  - **Example:**
-  - **Source:**
+  > Responsive design works on the principle of flexibility - a single fluid website that can look good on any device. Instead of one flexible design, adaptive design detects the device then provides the appropriate feature and layout based on a predefined set of viewport sizes and other characteristics.
+  - **Source:** [Adobe Xd](https://xd.adobe.com/ideas/process/ui-design/adaptive-design-vs-responsive-design/) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/css-questions#how-is-responsive-design-different-from-adaptive-design)
+
 - [ ] Have you ever worked with retina graphics? If so, when and what techniques did you use?
   - **Explanation:**
+  > Retina is just a marketing term to refer to high resolution screens with a pixel ratio bigger than 1. In order to have crisp, good-looking graphics that make the best of retina displays we need to use high resolution images whenever possible. However using highest resolution images will have an impact on page load times.
   - **Use:**
+  > To overcome this problem, we can use responsive images, as specified in HTML5 with the srcset attribute.
   - **Example:**
-  - **Source:**
+
+  ```html
+  <img
+    src="/images/test-1600.jpg"
+    srcset="
+      /images/test-400.jpg   400w,
+      /images/test-800.jpg   800w,
+      /images/test-1200.jpg 1200w
+    "
+  />
+  ```
+
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/css-questions#have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use)
+
 - [ ] Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?
   - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
+  > `translate()` is a value of CSS `transform`. `transform` causes the browser to create a GPU layer for the element but changing absolute positioning properties uses the CPU. `translate()` would be the more efficient solution with shorter paint times. If you do not want the original space of the element preserved you would want to use `absolute` positioning.
+  >
+  >When using `translate()`, the element still occupies its original space (sort of like `position: relative`), unlike in changing the absolute positioning.
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/css-questions#is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why)
 
 ---
 
