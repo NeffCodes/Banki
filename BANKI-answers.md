@@ -39,58 +39,77 @@ Most of the behavioral questions should be answered in the CAR format. At least 
 
 ### Questions
 
-- [ ] Give me an example of a project or initiative that you started on your own. What prompted you to get started?
+- [x] Give me an example of a project or initiative that you started on your own. What prompted you to get started?
   - **Cause:**
+  When I first started working at Professional Printers, there was no documentation at all for my role as an account manager.
   - **Action:**
+  I had a lot of questions, and instead of having to go back and re-ask, I started writing down my questions and with the answers.
   - **Result:**
-- [ ] Tell me about a time you had to work on several projects at once. How did you handle this?
+  As a result, I had a complete "beginner's" guide written out, which I provided to my manager who went on to use it for all future trainings. This documentation alone cut the amount of on-board time by 25%.
+
+- [x] Tell me about a time you had to work on several projects at once. How did you handle this?
   - **Cause:**
+  In my previous role, I had multiple projects at once on a daily basis.
   - **Action:**
+  I learned to keep track of the ongoing projects with my own tracker. By having great communication with the customers and with department heads, I was then able to prioritize which projects to address to ensure all were done on schedule.
   - **Result:**
+  As a result, I was able to break the company record for most handled projects without any spoilages.
+
 - [ ] Describe a situation in which you felt you had not communicated well enough. What did you do? How did you handle it?
   - **Cause:**
   - **Action:**
   - **Result:**
+
 - [ ] Tell me about when you had to deal with conflict within your team. How was the conflict solved? How did you handle that? How would you deal with it now?
   - **Cause:**
   - **Action:**
   - **Result:**
+
 - [ ] Give me an example of a time you had to take a creative and unusual approach to solve coding problem. How did this idea come to your mind? Why do you think it was unusual?
   - **Cause:**
   - **Action:**
   - **Result:**
+
 - [ ] Describe a situation in which you worked diligently on a project and it did not produce the desired results. Why didn't you get the desired results? What did you learn from the experience?
   - **Cause:**
   - **Action:**
   - **Result:**
+
 - [ ] Give an example of an important project goal you reached and how you achieved it.
   - **Cause:**
   - **Action:**
   - **Result:**
+
 - [ ] Describe a situation in which you experienced difficulty in getting others to accept your ideas? What was your approach? How did this work? Were you able to successfully persuade someone to see things your way
   - **Cause:**
   - **Action:**
   - **Result:**
+
 - [ ] Tell me about a situation when you were responsible for project planning. Did everything go according to your plan? If not, then why and what kind of counteractions did you have to take?
   - **Cause:**
   - **Action:**
   - **Result:**
+
 - [ ] Tell me about a situation when you made a mistake at work. What happened exactly and how did you deal with it? What steps did you take to improve the situation?
   - **Cause:**
   - **Action:**
   - **Result:**
+
 - [ ] Tell me about a time when you worked with someone who was not completing his or her share of the work. How did you handle the situation? Did you discuss your concern with your coworker? With your manager? If yes, how did your coworker respond to your concern? What was your manager's response?
   - **Cause:**
   - **Action:**
   - **Result:**
+
 - [ ] Describe a situation when you worked effectively under pressure. How did you feel when working under pressure? What was going on, and how did you get through it?
   - **Cause:**
   - **Action:**
   - **Result:**
+
 - [ ] Tell me about yourself.
   - **Cause:**
   - **Action:**
   - **Result:**
+
 - [ ] Tell me about your experience at 100Devs.
   - **Cause:**
   - **Action:**
@@ -563,7 +582,7 @@ Most of the technical questions should have a three sentence response in the EUE
   > That is the alternative CSS Box model. Instead of calculating the width of a box then adding the border and padding to get the real size, it instead allows you set the "true" width and height of a box, including the padding and border, and sets if for all elements with the `*` selector.
   - **Source:** [MDN CSS Box Model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#what_is_the_css_box_model)
 
-- [ ] What is the CSS `display` property and can you give a few examples of its use?
+- [x] What is the CSS `display` property and can you give a few examples of its use?
   - **Explanation / Use:**
   > The display CSS property sets whether an element is treated as a block or inline element and the layout used for its children, such as flow layout, grid or flex.
   - **Example:**
@@ -653,14 +672,14 @@ Most of the technical questions should have a three sentence response in the EUE
 
   - **Source:** [Final Site](https://www.finalsite.com/blog/p/~board/b/post/rresponsive-vs-mobile-first-difference) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/css-questions#can-you-explain-the-difference-between-coding-a-website-to-be-responsive-versus-using-a-mobile-first-strategy)
 
-- [ ] How is responsive design different from adaptive design?
+- [x] How is responsive design different from adaptive design?
   - **Explanation:**
   > Both responsive and adaptive design attempt to optimize the user experience across different devices.
   - **Use:**
   > Responsive design works on the principle of flexibility - a single fluid website that can look good on any device. Instead of one flexible design, adaptive design detects the device then provides the appropriate feature and layout based on a predefined set of viewport sizes and other characteristics.
   - **Source:** [Adobe Xd](https://xd.adobe.com/ideas/process/ui-design/adaptive-design-vs-responsive-design/) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/css-questions#how-is-responsive-design-different-from-adaptive-design)
 
-- [ ] Have you ever worked with retina graphics? If so, when and what techniques did you use?
+- [x] Have you ever worked with retina graphics? If so, when and what techniques did you use?
   - **Explanation:**
   > Retina is just a marketing term to refer to high resolution screens with a pixel ratio bigger than 1. In order to have crisp, good-looking graphics that make the best of retina displays we need to use high resolution images whenever possible. However using highest resolution images will have an impact on page load times.
   - **Use:**
@@ -680,7 +699,7 @@ Most of the technical questions should have a three sentence response in the EUE
 
   - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/css-questions#have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use)
 
-- [ ] Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?
+- [x] Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?
   - **Explanation:**
   > `translate()` is a value of CSS `transform`. `transform` causes the browser to create a GPU layer for the element but changing absolute positioning properties uses the CPU. `translate()` would be the more efficient solution with shorter paint times. If you do not want the original space of the element preserved you would want to use `absolute` positioning.
   >
@@ -953,7 +972,7 @@ Most of the technical questions should have a three sentence response in the EUE
   - **Use:**
   - **Example:**
   - **Source:**
-  
+
 - [ ] What's the difference between host objects and native objects?
   - **Explanation:**
   - **Use:**
