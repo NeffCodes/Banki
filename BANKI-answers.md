@@ -691,56 +691,269 @@ Most of the technical questions should have a three sentence response in the EUE
 
 ### Javascript
 
-- [ ] Explain event delegation
+- [x] Explain event delegation
   - **Explanation:**
+  > Event delegation is a technique involving adding event listeners to a parent element instead of adding them to the descendant elements. The listener will fire whenever the event is triggered on the descendant elements due to event bubbling up the DOM.
   - **Use:**
+  > The benefits of this technique are:
+  >
+  > - Memory footprint goes down because only one single handler is needed on the parent element, rather than having to attach event handlers on each descendant.
+  > - There is no need to unbind the handler from elements that are removed and to bind the event for new elements.
+  >
   - **Example:**
-  - **Source:**
-- [ ] Explain how `this` works in JavaScript
+  
+  ```html
+  <ul id="parent-list">
+    <li id="post-1">Item 1</li>
+    <li id="post-2">Item 2</li>
+    <li id="post-3">Item 3</li>
+    <li id="post-4">Item 4</li>
+    <li id="post-5">Item 5</li>
+    <li id="post-6">Item 6</li>
+  </ul>
+  ```
+
+  ```javascript
+  // Get the element, add a click listener...
+  document.getElementById("parent-list").addEventListener("click", function(e) {
+    // e.target is the clicked element!
+    // If it was a list item
+    if(e.target && e.target.nodeName == "LI") {
+      // List item found!  Output the ID!
+      console.log("List item ", e.target.id.replace("post-", ""), " was clicked!");
+    }
+  });
+  ```
+
+  - **Source:** [David Walsh](https://davidwalsh.name/event-delegate) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#explain-event-delegation)
+
+- [x] Explain how `this` works in JavaScript
   - **Explanation:**
+  > A property of an execution context (global, function or eval) that, in non–strict mode, is always a reference to an object and in strict mode can be any value. When inside of a constructor function or class it will reference the object on instantiation.
   - **Use:**
+  > It is used to assign properties and values to an object on instantiation.
   - **Example:**
-  - **Source:**
-- [ ] Explain how prototypal inheritance works
+  
+  ```javascript
+  const test = {
+    prop: 42,
+    func: function() {
+      return this.prop;
+    },
+  }; 
+
+  console.log(test.func()); // output: 42
+  ```
+
+  - **Source:** [MDN this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+
+- [x] Explain how prototypal inheritance works
   - **Explanation:**
+  > All JavaScript objects have a `__proto__` property that is a reference to another object, which is called the object's "prototype". If a property is accessed on an object, but not found the JavaScript engine check's that object prototype. If again it's not found it checks that prototypes prototype on up the chain until it reaches the top of the chain.
   - **Use:**
+  > Using it can help reduce redundant code.
   - **Example:**
-  - **Source:**
-- [ ] What do you think of AMD vs CommonJS?
+  > "Calling grandma to borrow her car if you don't have one".
+  
+  ```javascript
+  function Parent() {
+    this.name = 'Parent';
+  }
+
+  Parent.prototype.greet = function () {
+    console.log('Hello from ' + this.name);
+  };
+
+  const child = Object.create(Parent.prototype);
+
+  child.cry = function () {
+    console.log('waaaaaahhhh!');
+  };
+
+  child.cry();
+  // waaaaaahhhh!
+
+  child.greet();
+  // hello from Parent
+
+  child.constructor;
+  // ƒ Parent() {
+  //   this.name = 'Parent';
+  // }
+
+  child.constructor.name;
+  // 'Parent'
+  ```
+
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#explain-how-prototypal-inheritance-works)
+
+- [x] What do you think of AMD vs CommonJS?
   - **Explanation:**
+  > I would actually prefer to use ESM (ECMAScript Modules) due to it's simple syntax and async nature. Historically CommonJS was used in the back end and runs synchronous and AMD was used in the front end and runs asynchronous
   - **Use:**
+  >  CJS has been used in node.js for a while, but the current version of node now allows the use of EMS.
   - **Example:**
-  - **Source:**
-- [ ] Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?
+    - CJS
+
+      ```javascript
+      //importing 
+      const doSomething = require('./doSomething.js'); 
+
+      //exporting
+      module.exports = function doSomething(n) {
+        // do something
+      }
+      ```
+
+    - AMD
+
+    ```javascript
+    define(['dep1', 'dep2'], function (dep1, dep2) {
+      //Define the module value by returning a value.
+      return function () {};
+    });
+    ```
+
+    -ESM
+
+    ```javascript
+    import React from 'react';
+    //or
+    import {foo, bar} from './myLib';
+    ```
+
+  - **Source:** [dev.to](https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm)
+
+- [x] Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?
   - **Explanation:**
+  > IIFE are Immediately Invoked Function Expressions. The code provided doesn't work because the function is not wrapped in parenthesis.
+  >
+  >The JavaScript parser reads `function foo(){ }();` as `function foo(){ }` and `();`, where the former is a function declaration and the latter (a pair of parentheses) is an attempt at calling a function but there is no name specified, hence it throws `Uncaught SyntaxError: Unexpected token`
   - **Use:**
+  > Using IIFE can help avaoid polluting the global namespace
   - **Example:**
-  - **Source:**
-- [ ] What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?
+
+  ```javascript
+  (() => {
+    // some initiation code
+    let firstVariable;
+    let secondVariable;
+  })();
+  ```
+
+  - **Source:** [MDN IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife)
+
+- [x] What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?
   - **Explanation:**
+  >
+  > - Undeclared variables are created when you assign a value to an identifier that is not previously created using `var`, `let`, or `const`.
+  > - `null` have to be explicitly assigned with a `null` value which represets no value.
+  > - `undefined` are variables that were declared, but not assigned a value.
+  >
   - **Use:**
+
+  > `null` and `undefined` can be checked using strict equality `===.` Undeclared will throw it's own error so you could use try...catch
+
   - **Example:**
-  - **Source:**
-- [ ] What is a closure, and how/why would you use one?
+  
+    - Undeclared variables
+
+  ```javascript
+  function foo() {
+    x = 1; // Throws a ReferenceError in strict mode
+  }
+
+  foo();
+  console.log(x); // 1
+  ```
+
+  - `null`
+
+  ```javascript
+  let empty = null
+  ```
+
+  - `undefined`
+
+  ```javascript
+  let empty;
+  ```
+  >
+  - **Source:** [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
+
+- [x] What is a closure, and how/why would you use one?
   - **Explanation:**
+  > Closure allows you to use an outer function’s scope (go into a parent, grandparent function, etc.) from within an inner function. In JavaScript a closure is created every time a function is created.
   - **Use:**
+  > It allows you to combine data with the function that will operate on that data. It is similar to OOP.
   - **Example:**
-  - **Source:**
-- [ ] Can you describe the main difference between a `.forEach()` loop and a `.map()` loop and why you would pick one versus the other?
+  
+  ```javascript
+  function init() {
+  var name = 'Mozilla'; // name is a local variable created by init
+  function displayName() {
+      // displayName() is the inner function, a closure
+      alert(name); // use variable declared in the parent function
+    }
+    displayName();
+  }
+  init();
+  ```
+  
+  ```javascript
+  function makeAdder(x) {
+    return function(y) {
+      return x + y;
+    };
+  }
+
+  var add5 = makeAdder(5);
+  var add10 = makeAdder(10);
+
+  console.log(add5(2));  // 7 (y is the 2)
+  console.log(add10(2)); // 12 (y is the 2)
+  ```
+
+  - **Source:** [MDN Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+
+- [x] Can you describe the main difference between a `.forEach()` loop and a `.map()` loop and why you would pick one versus the other?
   - **Explanation:**
+  > The map method returns a new array by applying the callback function on each element of an array, while the forEach method doesn't return anything
   - **Use:**
+  > If you need the result and don't want to mutate the original array, use map. If you only need to iterate over the array then forEach can be used
   - **Example:**
-  - **Source:**
-- [ ] What's a typical use case for anonymous functions?
-  - **Explanation:**
-  - **Use:**
+
+  ```javascript
+  let arr = [1, 2, 3, 4, 5];
+
+  //forEach()
+  arr.forEach((num, index) => {
+      return arr[index] = num * 2;
+  });
+  console.log(arr) // arr = [2, 4, 6, 8, 10]
+
+  //map()
+  let doubled = arr.map(num => {
+    return num * 2;
+  });
+  console.log(doubled) // doubled = [2, 4, 6, 8, 10]
+  ```
+
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)
+
+- [x] What's a typical use case for anonymous functions?
+  - **Explanation / Use:**
+  > Anonymous functions are functions without a name. I generally use them for callback functions that do not need to used anywhere else.
   - **Example:**
-  - **Source:**
+  > Like inside of an array.map( (num) => num *2) function or with setTimeout.
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#whats-a-typical-use-case-for-anonymous-functions)
+
 - [ ] How do you organize your code? (module pattern, classical inheritance?)
   - **Explanation:**
   - **Use:**
   - **Example:**
   - **Source:**
+  
 - [ ] What's the difference between host objects and native objects?
   - **Explanation:**
   - **Use:**
