@@ -1327,31 +1327,94 @@ Most of the technical questions should have a three sentence response in the EUE
 
 ### Javascript General
 
-- [ ] Can you name two programming paradigms important for JavaScript app developers?
+- [x] Can you name two programming paradigms important for JavaScript app developers?
   - **Explanation:**
+  > The two most common are OOP or Object Oriented Programming (aka Imperative programming) and Functional Programming (aka declarative programming)
   - **Use:**
+  > OOP allows prototypal inheritance via different "classes". Functional is pure-functions without side effects.
   - **Example:**
-  - **Source:**
-- [ ] What is functional programming?
+
+  OOP
+
+  ```javascript
+    const John = {
+    skills: ["Python", "Javascript", "SQL"],
+    age: 22,
+    language: "English",
+    skilled: function skilled() {
+      if (this.skills.length > 2) {
+        return "He's got some skills";
+      } else {
+        return "Fair Enough";
+      }
+    },
+  };
+  ```
+
+  Functional
+
+  ```javascript
+  function closure() {
+    const name = "Carl";
+    return function greeting() {
+      return "Hello" + name;
+    };
+  } // return [function greeting]
+
+  ```
+
+  - **Source:** [Medium](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95) | [dev.to](https://dev.to/alamin__yusuf/paradigms-in-javascript-1m31)
+
+- [x] What is functional programming?
   - **Explanation:**
+  > Functional programming AKA Declarative programming is a programming pattern centered around writing pure functions, involving closures and lambdas (or fat-arrow functions), to execute some certain task without any side-effects
   - **Use:**
+  >  You avoid mutable data and shared states and instead make use of simple functions. It makes the code more predictable.
   - **Example:**
-  - **Source:**
-- [ ] What is the difference between classical inheritance and prototypal inheritance?
+
+  ```javascript
+  // Declarative Programming Example: Using Arrow Function
+  const arraySum = array => array.reduce((a, b) => a + b, 0);
+  ```
+
+  - **Source:** [Medium](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95) | [dev.to](https://dev.to/alamin__yusuf/paradigms-in-javascript-1m31)
+
+- [x] What is the difference between classical inheritance and prototypal inheritance?
   - **Explanation:**
-  - **Use:**
+  > In classical object-oriented programming, there are two types of abstractions: objects and classes. An object is an abstractions of an entity, while a class is either an abstraction of an object or another class.
+  >
+  > In prototypal object-oriented programming, there's only one type of abstraction: objects. Objects are either abstractions of entities or other objects, in which case they're called prototypes. Hence a prototype is a generalization.Objects can be created out of nothing or from another object, which in turn becomes the prototype of the newly created object.
   - **Example:**
-  - **Source:**
+  Classical
+
+  ```javascript
+  class Shoe { ... }
+  class Boot extends Shoe { ... }
+  let hikingShoe = new Boot()
+  ```
+
+  Prototypal
+  
+  ```javascript
+  const shoe = {};
+  const boot = Object.create(shoe);
+  const hikingShoe = Object.create(boot);
+  ```
+
+  - **Source:** [30 secs of code](https://www.30secondsofcode.org/articles/s/javascript-classical-vs-prototypal-inheritance) | [Stack Overflow](https://stackoverflow.com/questions/19633762/classical-inheritance-vs-prototypal-inheritance-in-javascript) | [dev.to](https://dev.to/crishanks/classical-vs-prototypal-inheritance-2o5a)
+
 - [ ] What are the pros and cons of functional programming vs object-oriented programming?
   - **Explanation:**
   - **Use:**
   - **Example:**
   - **Source:**
+
 - [ ] What are two-way data binding and one-way data flow, and how are they different?
   - **Explanation:**
   - **Use:**
   - **Example:**
   - **Source:**
+  
 - [ ] What is asynchronous programming, and why is it important in JavaScript?
   - **Explanation:**
   - **Use:**
