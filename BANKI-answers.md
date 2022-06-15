@@ -967,62 +967,191 @@ Most of the technical questions should have a three sentence response in the EUE
   > Like inside of an array.map( (num) => num *2) function or with setTimeout.
   - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#whats-a-typical-use-case-for-anonymous-functions)
 
-- [ ] How do you organize your code? (module pattern, classical inheritance?)
+- [x] How do you organize your code? (module pattern, classical inheritance?)
   - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
+  > My preference is to use ES6 Modules to organize my code for the following reasons:
+  >
+  > - Easier to reuse code
+  > - Easier to keep code separated leading to...
+  > - Easier to maintain
+  >
+  - **Source:** [Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-es6-modules)
 
-- [ ] What's the difference between host objects and native objects?
+- [x] What's the difference between host objects and native objects?
   - **Explanation:**
+  > Native objects are part of the language as defined by ECMAScript specification. Host objects are those provided by the runtime (browser or Node).
+  - **Example:**
+  > Some native objects are `String`, `Math`, `RegExp`, and `Object`. A couple of host objects are `window` and `console`
+  - **Source:** [Stack Overflow](https://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects) | [FE Interview Handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#whats-the-difference-between-host-objects-and-native-objects)
+
+- [x] What is the difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
+  - **Explanation:**
+    - `function Person(){}` is likely being used as a constructor.
+    - `var person = new Person()` is instantiated a new Person object as person.
+    - `var person = Person()` is not correct and would likely return undefined. To create a new instance you would need to use the new operator as above.
+
+  - **Example:**
+
+  ```javascript
+  function Person(name) {
+    this.name = name;
+  }
+
+  var person = Person('John');
+  console.log(person); // undefined
+  console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined
+
+  var person = new Person('John');
+  console.log(person); // Person { name: "John" }
+  console.log(person.name); // "john"
+  ```
+
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#difference-between-function-person-var-person--person-and-var-person--new-person)
+
+- [x] What's the difference between `.call()` and `.apply()`?
+  - **Explanation:**
+  > They are both used to invoke functions the difference is in how they take arguments. .call() takes them as comma-separated values and .apply() takes them as an array.
+  - **Example:**
+
+  ```javascript
+  function add(a, b) {
+    return a + b;
+  }
+
+  console.log(add.call(null, 1, 2)); // 3
+  console.log(add.apply(null, [1, 2])); // 3
+  ```
+
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#whats-the-difference-between-call-and-apply)
+
+- [x] Explain `Function.prototype.bind`.
+  - **Explanation:**
+  > The `bind()` method creates a new function that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called
+  - **Use:**
+  > For binding the value of `this` in methods of classes that you want to pass into other functions. This is frequently done in React components.
+  - **Example:**
+
+  ```javascript
+  const module = {
+    x: 42,
+    getX: function() {
+      return this.x;
+    }
+  };
+
+  const unboundGetX = module.getX;
+  console.log(unboundGetX()); // The function gets invoked at the global scope
+  // expected output: undefined
+
+  const boundGetX = unboundGetX.bind(module);
+  console.log(boundGetX());
+  // expected output: 42
+  ```
+
+  - **Source:**[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind)
+
+- [x] When would you use `document.write()`?
+  - **Explanation:**
+  > Use of `document.write()` is strongly discouraged as it's prone to misuse. In the past, some developers used it to add the current year to the footer for the copyright, but I would not use it in a modern day website.
+  - **Source:** [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/write)
+
+- [x] What's the difference between feature detection, feature inference, and using the UA string?
+  - **Explanation:**
+    - *Feature Detection*:
+    Working out whether a browser supports a certain block of code, and running different code depending on whether it does, so that the browser can provide a working experience rather crashing/erroring in some browsers.
+    - *Feature Inference*:
+    Checks for a feature just like feature detection, but uses another function because it assumes it will also exist. Not recommended, Feature Detection is the better approach.
+    - *UA String*:
+    A browser-reported string that allows the network protocol peers to identify various properties of the system. It's tricky to parse and can be spoofed so it's best to avoid this method.
+
   - **Use:**
   - **Example:**
-  - **Source:**
-- [ ] What is the difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
+    - Detection
+
+    ```javascript
+    if ('geolocation' in navigator) {
+    // Can use navigator.geolocation
+    } else {
+      // Handle lack of feature
+    }
+    ```
+
+    - Inference
+
+    ```javascript
+    if (document.getElementsByTagName) {
+      element = document.getElementById(id);
+    }
+    ```
+
+    - UA
+
+    ```javascript
+    //in console run
+    navigator.userAgent
+    ```
+
+  - **Source:** [Medium](https://rlynjb.medium.com/js-interview-question-what-s-the-difference-between-feature-detection-feature-inference-and-76d2e4956a9b) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string)
+
+- [x] Explain Ajax in as much detail as possible.
   - **Explanation:**
+  > Ajax (asynchronous JavaScript and XML) is a set of web development techniques using many web technologies on the client side to create asynchronous web applications. With Ajax, web applications can send data to and retrieve from a server asynchronously (in the background) without interfering with the display and behavior of the existing page.
   - **Use:**
+  > By decoupling the data interchange layer from the presentation layer, Ajax allows for web pages, and by extension web applications, to change content dynamically without the need to reload the entire page. In practice, modern implementations commonly use JSON instead of XML, due to the advantages of JSON being native to JavaScript.
   - **Example:**
-  - **Source:**
-- [ ] What's the difference between `.call()` and `.apply()`?
+  > The `XMLHttpRequest` API is frequently used for the asynchronous communication or these days, the `fetch` API.
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#explain-ajax-in-as-much-detail-as-possible)
+
+- [x] What are the advantages and disadvantages of using Ajax?
+  - **Advantages**
+    - Better interactivity. New content from the server can be changed dynamically without the need to reload the entire page.
+    - Reduce connections to the server since scripts and stylesheets only have to be requested once.
+    - State can be maintained on a page. JavaScript variables and DOM state will persist because the main container page was not reloaded.
+
+  - **Disadvantages**
+    - Dynamic webpages are harder to bookmark.
+    - Does not work if JavaScript has been disabled in the browser.
+    - Some webcrawlers do not execute JavaScript and would not see content that has been loaded by JavaScript.
+    - JavaScript will have to be parsed and executed on the browser, and low-end mobile devices might struggle with this.
+
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#what-are-the-advantages-and-disadvantages-of-using-ajax)
+
+- [x] Explain how JSONP works (and how it's not really Ajax).
   - **Explanation:**
+  >JSONP (JSON with Padding) is a method commonly used to bypass the cross-domain policies in web browsers because Ajax requests from the current page to a cross-origin domain is not allowed.
+  >
+  >When used to describe a data format, "ajax" typically means "xml". JSONP is simply JSON-formatted data wrapped in a callback function.
   - **Use:**
+  > JSONP can be unsafe as it can do everything else JavaScript can so you need to trust the provider of data. These days, CORS is the recommended approach and JSONP is seen as a hack.
   - **Example:**
-  - **Source:**
-- [ ] Explain `Function.prototype.bind`.
+
+  ```javascript
+  <!-- https://mydomain.com -->
+  <script>
+    function printData(data) {
+      console.log(`My name is ${data.name}!`);
+    }
+  </script>
+
+  <script src="https://example.com?callback=printData"></script>
+  ```
+
+  - **Source:** [Stack Overflow](https://stackoverflow.com/questions/7115940/what-is-the-difference-between-ajax-restful-rest-json-and-jsonp) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#explain-how-jsonp-works-and-how-its-not-really-ajax)
+
+- [x] Have you ever used JavaScript templating? If so, what libraries have you used?
   - **Explanation:**
-  - **Use:**
+  > Yes, I have used EJS with Node and I'm familiar with the mustache / handlebar libraries.
   - **Example:**
-  - **Source:**
-- [ ] When would you use `document.write()`?
-  - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] What's the difference between feature detection, feature inference, and using the UA string?
-  - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] Explain Ajax in as much detail as possible.
-  - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] What are the advantages and disadvantages of using Ajax?
-  - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] Explain how JSONP works (and how it's not really Ajax).
-  - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] Have you ever used JavaScript templating? If so, what libraries have you used?
-  - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
+  
+  ```ejs
+  //ejs
+  <% if (user) { %>
+    <h2><%= user.name %></h2>
+  <% } %>
+  ```
+
+  - **Source:** [EJS](https://ejs.co/#docs)
+
 - [ ] Explain "hoisting".
   - **Explanation:**
   - **Use:**
