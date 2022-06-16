@@ -1152,21 +1152,55 @@ Most of the technical questions should have a three sentence response in the EUE
 
   - **Source:** [EJS](https://ejs.co/#docs)
 
-- [ ] Explain "hoisting".
+- [x] Explain "hoisting".
   - **Explanation:**
+  > Hoisting refers to the process whereby the interpreter appears to move the *declaration* of functions, variables or classes to the top of their scope, prior to execution of the code (NOT initializations).
   - **Use:**
+  > This allows functions to be safely used in code before they are declared.
   - **Example:**
-  - **Source:**
-- [ ] Describe event bubbling.
-  - **Explanation:**
-  - **Use:**
+
+  ```javascript
+  catName("Tiger");
+
+  function catName(name) {
+    console.log("My cat's name is " + name);
+  } //output: "My cat's name is Tiger"
+
+  
+  console.log(num); // Throws ReferenceError exception as the variable value is uninitialized
+  let num = 6; // Initialization
+  ```
+
+  - **Source:** [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions#explain-hoisting)
+
+- [x] Describe event bubbling.
+  - **Explanation / Use:**
+  > When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors. The most deeply nested element that caused the event is called a target element, accessible as event.target.
   - **Example:**
-  - **Source:**
+
+  ```html
+  <form onclick="alert('form')">FORM
+    <div onclick="alert('div')">DIV
+      <p onclick="alert('p')">P</p>
+    </div>
+  </form>
+  ```
+
+  A click on the inner `<p>` first runs onclick:
+
+    1. On that `<p>`.
+    1. Then on the outer `<div>`.
+    1. Then on the outer `<form>`.
+    1. And so on upwards till the document object.
+
+  - **Source:** [Javascript Info](https://javascript.info/bubbling-and-capturing)
+
 - [ ] What's the difference between an "attribute" and a "property"?
   - **Explanation:**
   - **Use:**
   - **Example:**
   - **Source:**
+  
 - [ ] Why is extending built-in JavaScript objects not a good idea?
   - **Explanation:**
   - **Use:**
@@ -1441,7 +1475,7 @@ Most of the technical questions should have a three sentence response in the EUE
   > Often helps reduce or prevent wait times. You would typically choose async programming with loading/downloading data, running longer programs, minimizing idle time, or to show action visually
   - **Example:**
   > A customer making an online purchase might visually see a graphic, logo or message on the screen after entering their credit card information. The logo or screen visual happens while the credit card data corresponds to the database and processes payment.
-  - **Source:** [Indeed](https://www.indeed.com/career-advice/career-development/asynchronous-programming)
+  - **Source:** [Indeed](https://www.indeed.com/career-advice/career-development/asynchronous-programming) | [BMC](https://www.bmc.com/blogs/asynchronous-programming/)
 
 ---
 
