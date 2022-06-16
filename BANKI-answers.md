@@ -1403,23 +1403,45 @@ Most of the technical questions should have a three sentence response in the EUE
 
   - **Source:** [30 secs of code](https://www.30secondsofcode.org/articles/s/javascript-classical-vs-prototypal-inheritance) | [Stack Overflow](https://stackoverflow.com/questions/19633762/classical-inheritance-vs-prototypal-inheritance-in-javascript) | [dev.to](https://dev.to/crishanks/classical-vs-prototypal-inheritance-2o5a)
 
-- [ ] What are the pros and cons of functional programming vs object-oriented programming?
-  - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
+- [x] What are the pros and cons of functional programming vs object-oriented programming?
+  - **OOP Pros:**
+    - It's easy to understand
+    - Uses an imperative style, in which the code is read like a simple set of instructions, just like a computer would read it.
+    - Uses loops for iteration
+  - **OOP Cons:**
+    - hard to maintain objects while increasing the levels of inheritance.
+    - Its methods can have side effects and may put an impact on processors.
+    - Depends on a shared state, aka objects and behaviours are typically tacked together on the same entity.
+    - May lead to unspecified and unexpected results in the sense that a parallel code that would have access to a common resource could do so in a way that produces unspecified results.
+  - **Functional Pros:**
+    - Using clean/pure and transparent functions leads to reliable results without side effects that deliver and return exactly what you expect.
+    - Using clean and transparent functions leads to reliable results without side effects that deliver and return exactly what you expect.
+    - Tend to be radically simplified and can easily recompose for improved reusability.
+    - Computation that makes use of pure functions can be easy to scale across multiple processors
+  - **Functional Cons:**
+    - Iterates with recursion
+    - Always requires a new object to execute functions, and it takes a lot of memory for executing the applications.
+    - Sometimes it may  become illegible due to a very large number of functions compared to OOP.
+    - Not as many people are familiar with FP vs OOP.
+    - Has a steeper learning curve
 
-- [ ] What are two-way data binding and one-way data flow, and how are they different?
-  - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
+  - **Source:** [Medium](https://farida-alv04.medium.com/functional-vs-object-oriented-programming-pros-and-cons-cecfbb4054ca) | [Medium](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95) | [educba](https://www.educba.com/functional-programming-vs-oop/)
+
+- [x] What are two-way data binding and one-way data flow, and how are they different?
+  - **Explanation / Use:**
+    > One-way data binding (React/Flux) is a situation where information flows in only one direction, so that whenever the data changes in a component, it also updates the view with new data. This makes the variable read-only from the user's perspective
+    >
+    >Two-way data binding (Angular) is when information flows in both directions, it means any change happens in the view updates the data and any change happens in the data updates the view. This allows the variable to be updated by the user.
+  - **Source:** [ReactGo](https://reactgo.com/angular-oneway-vs-twoway-binding/)
   
-- [ ] What is asynchronous programming, and why is it important in JavaScript?
+- [x] What is asynchronous programming, and why is it important in JavaScript?
   - **Explanation:**
+  > Asynchronous programming is a type of parallel computer programming that lets functions act separately from the main application, or thread, and it then notifies the thread when the task finishes or potentially fails. Javascript is a single thread
   - **Use:**
+  > Often helps reduce or prevent wait times. You would typically choose async programming with loading/downloading data, running longer programs, minimizing idle time, or to show action visually
   - **Example:**
-  - **Source:**
+  > A customer making an online purchase might visually see a graphic, logo or message on the screen after entering their credit card information. The logo or screen visual happens while the credit card data corresponds to the database and processes payment.
+  - **Source:** [Indeed](https://www.indeed.com/career-advice/career-development/asynchronous-programming)
 
 ---
 
