@@ -1195,42 +1195,99 @@ Most of the technical questions should have a three sentence response in the EUE
 
   - **Source:** [Javascript Info](https://javascript.info/bubbling-and-capturing)
 
-- [ ] What's the difference between an "attribute" and a "property"?
-  - **Explanation:**
-  - **Use:**
+- [x] What's the difference between an "attribute" and a "property"?
+  - **Explanation / Use:**
+  > Attributes are defined on the HTML markup but properties are defined on the DOM. An attribute is the initial state when rendered in the DOM. A property is the current state.
   - **Example:**
-  - **Source:**
+
+  ```html
+  <input type="text" value="Hello">
+  ```
+
+  ```javascript
+  const input = document.querySelector('input');
+  console.log(input.getAttribute('value')); // Hello
+  console.log(input.value); // Hello
+
+  //after changing the value of the text field to 'World!'
+  console.log(input.getAttribute('value')); // Hello
+  console.log(input.value); // World!
+  ```
+
+  - **Source:** [MDN](https://javascript.info/dom-attributes-and-properties) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#whats-the-difference-between-an-attribute-and-a-property)
   
-- [ ] Why is extending built-in JavaScript objects not a good idea?
+- [x] Why is extending built-in JavaScript objects not a good idea?
   - **Explanation:**
+  > Extending a built-in javascript objec means adding properties/functions to its prototype. This is dangerous because if you use multiple libraries who may extend an object with the same method, they could overwrite each other and your code would break.
   - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] Difference between document `load` event and document `DOMContentLoaded` event?
+  > The only time you should really extend a javascript object is implementing polyfills, which are your implmenetation for a method that may not be originally available on older browsers.
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#why-is-extending-built-in-javascript-objects-not-a-good-idea) | [MDN Polyfills](https://developer.mozilla.org/en-US/docs/Glossary/Polyfill)
+
+- [x] Difference between document `load` event and document `DOMContentLoaded` event?
   - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] What is the difference between `==` and `===`?
+  > `window`'s `load` event is only fired after the DOM and all dependent resources and assets have loaded.
+  >
+  > `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+  - **Source:** [MDN DOMContentLoaded](https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event) | [MDN load](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#difference-between-document-load-event-and-document-domcontentloaded-event)
+
+- [x] What is the difference between `==` and `===`?
   - **Explanation:**
+  > `==` checks for value equality while `===` checks for value and data type equality
   - **Use:**
+  > `==` should generally be avoided unless for null or undefined
   - **Example:**
-  - **Source:**
-- [ ] Explain the same-origin policy with regards to JavaScript.
+  
+  ```javascript
+  1 == '1'; // true
+  1 == [1]; // true
+  1 == true; // true
+  0 == ''; // true
+  0 == '0'; // true
+  0 == false; // true
+  ```
+
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#what-is-the-difference-between--and-)
+
+- [x] Explain the same-origin policy with regards to JavaScript.
   - **Explanation:**
+  > The same-origin policy prevents JavaScript from making requests across domain boundaries.
   - **Use:**
+  > An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
   - **Example:**
-  - **Source:**
-- [ ] Make this work: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`
+  > For example, it prevents a malicious website on the Internet from running JS in a browser to read data from a third-party webmail service
+  - **Source:** [MDN](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#explain-the-same-origin-policy-with-regards-to-javascript)
+
+- [x] Make this work: `duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]`
   - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] Why is it called a ternary expression, what does the word "ternary" indicate?
+  Thanks to ES6, we can use the spread operator.
+
+  ```javascript
+  const duplicate = arr => [...arr,...arr]
+  ```
+
+  But we can also use the .concat() array method
+
+  ```javascript
+  const dupliacte = arr => arr.concat(arr)
+  ```
+
+  Both return a new array
+
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions/#make-this-work)
+
+- [x] Why is it called a ternary expression, what does the word "ternary" indicate?
   - **Explanation:**
+  > "Ternary" indicates three, and it's the only javascript operator that takes 3 operands: The condition, followed by a `?`, the expression if truthy followed by a `:`, and then the expression if falsy.
   - **Use:**
+  > Generally used to simplify code instead of an `if...else` statement.
   - **Example:**
-  - **Source:**
+
+  ```javascript
+  condition ? exprIfTrue : exprIfFalse
+  ```
+
+  - **Source:** [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+
 - [ ] What is "use strict";? what are the advantages and disadvantages to using it?
   - **Explanation:**
   - **Use:**
