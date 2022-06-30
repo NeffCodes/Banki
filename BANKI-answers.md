@@ -1288,21 +1288,44 @@ Most of the technical questions should have a three sentence response in the EUE
 
   - **Source:** [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
 
-- [ ] What is "use strict";? what are the advantages and disadvantages to using it?
+- [x] What is "use strict";? what are the advantages and disadvantages to using it?
   - **Explanation:**
+  > "use strict" is a statement that looks like a string at the top of your script, and is a way to opt into a restricted variant of JavaScript.
+
   - **Use:**
+  > The advantages of using 'use strict' includes making it impossible to accidentally create global variables, requires function parameter names be unique, and catching some common coding bloopers, throwing exceptions. However, by using it some feature are removed that developers might be used to using (like function.caller or function.arguments) and concating multiple scripts written in different script modes may cause issues.
   - **Example:**
-  - **Source:**
-- [ ] Create a for loop that iterates up to 100 while outputting "fizz" at multiples of 3, "buzz" at multiples of 5 and "fizzbuzz" at multiples of 3 and 5
+
+  ```javascript
+    "use strict";
+
+    // this code works the modern way
+    ...
+  ```
+
+  - **Source:** [javascript.info](https://javascript.info/strict-mode) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions#what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it)
+
+- [x] Create a for loop that iterates up to 100 while outputting "fizz" at multiples of 3, "buzz" at multiples of 5 and "fizzbuzz" at multiples of 3 and 5
+  
+  ```javascript
+    for (let i = 1; i <= 100; i++) {
+      let string = '';
+      if(!(i%3)) string += 'Fizz'
+      if(!(i%5)) string += 'Buzz'
+
+      console.log( string ? string : i)
+    }
+  ```
+  
+  - **Source:** Me
+
+- [x] Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
+
   - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
-  - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
+  > Every script has access to the global scope, and if everyone uses the global namespace to define their variables, collisions will likely occur. Use the module pattern (IIFEs) to encapsulate your variables within a local namespace.
+
+  - **Source:** [Lucy Bain](https://lucybain.com/blog/2014/js-dont-touch-global-scope/)
+
 - [ ] Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
   - **Explanation:**
   - **Use:**
