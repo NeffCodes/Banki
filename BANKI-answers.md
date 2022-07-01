@@ -1326,11 +1326,32 @@ Most of the technical questions should have a three sentence response in the EUE
 
   - **Source:** [Lucy Bain](https://lucybain.com/blog/2014/js-dont-touch-global-scope/)
 
-- [ ] Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
+- [x] Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
   - **Explanation:**
+  >  `load` fires when the entire page is finished loading (HTML, CSS, images, etc.).
+  > `DOMContentLoaded` fires when the DOM is fully loaded, but before external resources like stylesheets are loaded.
   - **Use:**
+  > `load` can be useful if you want to appply styling, like image sizes
+  > `DOMContentLoaded` can be useful to work with the DOM nodes
   - **Example:**
-  - **Source:**
+
+  ```javascript
+  function ready() {
+    alert('DOM is ready');
+
+    // image is in the DOM, but not yet loaded (unless it was cached), so the size is 0x0
+    alert(`Image size: ${img.offsetWidth}x${img.offsetHeight}`);
+  }
+
+  document.addEventListener("DOMContentLoaded", ready);
+  ```
+
+  ```html
+  <img id="img" src="https://en.js.cx/clipart/train.gif?speed=1&cache=0">
+  ```
+
+  - **Source:** [javascript.info](https://javascript.info/onload-ondomcontentloaded)
+  
 - [ ] Explain what a single page app is and how to make one SEO-friendly.
   - **Explanation:**
   - **Use:**
