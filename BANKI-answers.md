@@ -1352,21 +1352,38 @@ Most of the technical questions should have a three sentence response in the EUE
 
   - **Source:** [javascript.info](https://javascript.info/onload-ondomcontentloaded)
   
-- [ ] Explain what a single page app is and how to make one SEO-friendly.
+- [x] Explain what a single page app is and how to make one SEO-friendly.
   - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] What is the extent of your experience with Promises and/or their polyfills?
+  > SPA's are a single website that relates with users by updating the existing page with new data, but subsequent changes to the page do not initiate a page refresh. Due to this, SEO web crawlers have a hard time traversing the data since the url does not change. However, recently Google started indexing active pages, so developers need to make sure the javascript files can be indexed for the crawlers to traverse.
+  - **Source:** [Monocubed](https://www.monocubed.com/blog/what-is-single-page-application/) | [Geekflare](https://geekflare.com/single-page-applications/)
+
+- [x] What is the extent of your experience with Promises and/or their polyfills?
   - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
-- [ ] What are the pros and cons of using Promises instead of callbacks?
-  - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
+  > I've used Promises extensively as they are a main component in modern asynchronous JavaScript.
+  > A promise is an object that may produce a single value sometime in the future: either a resolved value or a reason that it's not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. 
+  > I haven't used polyfills much as they aren't required much these days.
+
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions#what-is-the-extent-of-your-experience-with-promises-andor-their-polyfills)
+
+- [x] What are the pros and cons of using Promises instead of callbacks?
+  - **Pros:**
+
+    - Avoid callback hell which can be unreadable.
+    - Makes it easy to write sequential asynchronous code that is readable with .then().
+    - Makes it easy to write parallel asynchronous code with Promise.all().
+    - With promises, these scenarios which are present in callbacks-only coding, will not happen:
+      - Call the callback too early
+      - Call the callback too late (or never)
+      - Call the callback too few or too many times
+      - Fail to pass along any necessary environment/parameters
+      - Swallow any errors/exceptions that may happen
+  - **Cons:**
+
+    - Slightly more complex code (debatable).
+    - In older browsers where ES2015 is not supported, you need to load a polyfill in order to use it.
+
+  - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions#what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks)
+
 - [ ] What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
   - **Explanation:**
   - **Use:**
