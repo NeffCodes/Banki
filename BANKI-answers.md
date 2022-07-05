@@ -1360,7 +1360,7 @@ Most of the technical questions should have a three sentence response in the EUE
 - [x] What is the extent of your experience with Promises and/or their polyfills?
   - **Explanation:**
   > I've used Promises extensively as they are a main component in modern asynchronous JavaScript.
-  > A promise is an object that may produce a single value sometime in the future: either a resolved value or a reason that it's not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. 
+  > A promise is an object that may produce a single value sometime in the future: either a resolved value or a reason that it's not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending.
   > I haven't used polyfills much as they aren't required much these days.
 
   - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions#what-is-the-extent-of-your-experience-with-promises-andor-their-polyfills)
@@ -1384,11 +1384,17 @@ Most of the technical questions should have a three sentence response in the EUE
 
   - **Source:** [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions#what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks)
 
-- [ ] What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
+- [x] What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
   - **Explanation:**
-  - **Use:**
-  - **Example:**
-  - **Source:**
+  > Using a language like TypeScript to compile to Javascript has a couple of advantages and disadvantages
+  - **Pros:**
+  > Adding strict types and other elements that make the code more self-expressive (so-called syntactic sugar). This leads to better predictablility - if a variable is defined as a string, it won't change to a boolean. There is also large amounts of support
+  - **Cons:**
+  >
+  > - Another level of javascript to learn types and some TS-specific constructs.
+  > - The enhanced code leads to needing to write more code and has the potential of slowing down the development process.
+  >
+  - **Source:** [altexsoft](https://www.altexsoft.com/blog/typescript-pros-and-cons/) | [FE Interview handbook](https://www.frontendinterviewhandbook.com/javascript-questions#what-are-some-of-the-advantagesdisadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript)
 - [ ] What tools and techniques do you use debugging JavaScript code?
   - **Explanation:**
   - **Use:**
